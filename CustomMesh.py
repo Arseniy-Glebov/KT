@@ -6,10 +6,10 @@ import sys
 gmsh.initialize()
 
 path = os.path.dirname(os.path.abspath(__file__))
-gmsh.merge(os.path.join(path, 'Torus1.STL'))
+gmsh.merge(os.path.join(path, 'Паром Б.stl'))
 
-angle = 40
-forceParametrizablePatches = True
+angle = 80
+forceParametrizablePatches = False
 includeBoundary = True
 curveAngle = 180
 
@@ -29,11 +29,11 @@ f = gmsh.model.mesh.field.add("MathEval")
 if funny:
     gmsh.model.mesh.field.setString(f, "F", "2*Sin((x+y)/5) + 3")
 else:
-    gmsh.model.mesh.field.setString(f, "F", "5")
+    gmsh.model.mesh.field.setString(f, "F", "3")
 gmsh.model.mesh.field.setAsBackgroundMesh(f)
 
 gmsh.model.mesh.generate(3)
-gmsh.write('torus.msh')
+gmsh.write('parom.msh')
 
 if '-nopopup' not in sys.argv:
     gmsh.fltk.run()
