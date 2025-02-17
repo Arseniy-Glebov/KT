@@ -30,7 +30,7 @@ angle = 40
 # For complex geometries, patches can be too complex, too elongated or too large
 # to be parametrized; setting the following option will force the creation of
 # patches that are amenable to reparametrization:
-forceParametrizablePatches = False
+forceParametrizablePatches = True
 
 # For open surfaces include the boundary edges in the classification process:
 includeBoundary = True
